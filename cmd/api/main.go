@@ -1,6 +1,7 @@
 package main
 
 import (
+	"green-thumb-api/config"
 	"green-thumb-api/controller"
 	"net/http"
 )
@@ -10,7 +11,7 @@ var ro = controller.NewRouter(pl)
 
 func main() {
 	server := http.Server{
-		Addr: ":8080",
+		Addr: ":" + config.Config.Port,
 	}
 	http.HandleFunc("/", ro.HandlePlantList)
 	server.ListenAndServe()
