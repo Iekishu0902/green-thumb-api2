@@ -7,7 +7,7 @@ import (
 )
 
 // MPlantCotegory represents a row from 'public.m_plant_cotegory'.
-type MPlantCotegory struct {
+type MPlantCategory struct {
 	PlantCotegoryID   int       `json:"plant_cotegory_id"`   // plant_cotegory_id
 	PlantCotegoryName string    `json:"plant_cotegory_name"` // plant_cotegory_name
 	DeleteFlg         bool      `json:"delete_flg"`          // delete_flg
