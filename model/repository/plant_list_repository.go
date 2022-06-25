@@ -1,12 +1,12 @@
 package repository
 
 import (
-	"fmt"
+	"green-thumb-api/model/entity"
 	"log"
 )
 
 type PlantListRepository interface {
-	GetPlantList()
+	GetPlantList() (plantList []entity.MPlantCategory, err error)
 }
 
 type plantListRepository struct{}
@@ -15,13 +15,25 @@ func NewPlantListRepository() PlantListRepository {
 	return &plantListRepository{}
 }
 
-func (pr *plantListRepository) GetPlantList() {
-	rows, err := Db.Query("select * from m_plant_cotegory")
+func (pr *plantListRepository) GetPlantList() (plantList []entity.MPlantCategory, err error) {
+	plantList = []entity.MPlantCategory{}
+	rows, err := Db.Query("select plant_category_name from m_plant_category")
 
 	if err != nil {
 		log.Fatalln(err)
+		return
 	}
-	fmt.Println(rows)
+	for rows.Next() {
+		plant := entity.MPlantCategory{}
+		err = rows.Scan(&plant.PlantcategoryName)
+		if err != nil {
+			log.Print(err)
+			return
+		}
+		plantList = append(plantList, plant)
+	}
+
+	return
 
 }
 

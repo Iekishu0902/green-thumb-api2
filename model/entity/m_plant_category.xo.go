@@ -6,10 +6,10 @@ import (
 	"time"
 )
 
-// MPlantCotegory represents a row from 'public.m_plant_cotegory'.
+// MPlantcategory represents a row from 'public.m_plant_category'.
 type MPlantCategory struct {
-	PlantCotegoryID   int       `json:"plant_cotegory_id"`   // plant_cotegory_id
-	PlantCotegoryName string    `json:"plant_cotegory_name"` // plant_cotegory_name
+	PlantcategoryID   int       `json:"plant_category_id"`   // plant_category_id
+	PlantcategoryName string    `json:"plant_category_name"` // plant_category_name
 	DeleteFlg         bool      `json:"delete_flg"`          // delete_flg
 	CreateUser        string    `json:"create_user"`         // create_user
 	CreateDatetime    time.Time `json:"create_datetime"`     // create_datetime

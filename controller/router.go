@@ -20,7 +20,8 @@ func NewRouter(pl PlantListController) Router {
 func (ro *router) HandlePlantList(w http.ResponseWriter, r *http.Request) {
 	switch r.URL.Path {
 	case "/list":
-		fmt.Println("/listです")
+		fmt.Println("HandlePlantList()")
+		ro.pl.PlantList(w, r)
 	}
 
 }
