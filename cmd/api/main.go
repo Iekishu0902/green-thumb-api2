@@ -7,15 +7,15 @@ import (
 	"net/http"
 )
 
-var plantListRepo = repository.NewPlantListRepository()
-var pl = controller.NewPlantListController(plantListRepo)
-var ro = controller.NewRouter(pl)
+var plantCategoryListRepo = repository.NewPlantCategoryListRepository()
+var plantCategoryListController = controller.NewPlantCategoryListController(plantCategoryListRepo)
+var router = controller.NewRouter(plantCategoryListController)
 
 func main() {
 	server := http.Server{
 		Addr: ":" + config.Config.Port,
 	}
-	http.HandleFunc("/", ro.HandlePlantList)
+	http.HandleFunc("/", router.HandlePlantCategoryList)
 	server.ListenAndServe()
 
 }

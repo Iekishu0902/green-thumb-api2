@@ -8,7 +8,7 @@ import (
 
 // MPlantcategory represents a row from 'public.m_plant_category'.
 type MPlantCategory struct {
-	PlantcategoryID   int       `json:"plant_category_id"`   // plant_category_id
+	PlantcategoryId   int       `json:"plant_category_id"`   // plant_category_id
 	PlantcategoryName string    `json:"plant_category_name"` // plant_category_name
 	DeleteFlg         bool      `json:"delete_flg"`          // delete_flg
 	CreateUser        string    `json:"create_user"`         // create_user

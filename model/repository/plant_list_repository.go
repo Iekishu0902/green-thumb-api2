@@ -5,18 +5,18 @@ import (
 	"log"
 )
 
-type PlantListRepository interface {
-	GetPlantList() (plantList []entity.MPlantCategory, err error)
+type PlantCategoryListRepository interface {
+	GetPlantCategoryList() (plantCategoryList []entity.MPlantCategory, err error)
 }
 
-type plantListRepository struct{}
+type plantCategoryListRepository struct{}
 
-func NewPlantListRepository() PlantListRepository {
-	return &plantListRepository{}
+func NewPlantCategoryListRepository() PlantCategoryListRepository {
+	return &plantCategoryListRepository{}
 }
 
-func (pr *plantListRepository) GetPlantList() (plantList []entity.MPlantCategory, err error) {
-	plantList = []entity.MPlantCategory{}
+func (pr *plantCategoryListRepository) GetPlantCategoryList() (plantCategoryList []entity.MPlantCategory, err error) {
+	plantCategoryList = []entity.MPlantCategory{}
 	rows, err := Db.Query("select plant_category_name from m_plant_category")
 
 	if err != nil {
@@ -27,14 +27,12 @@ func (pr *plantListRepository) GetPlantList() (plantList []entity.MPlantCategory
 		plant := entity.MPlantCategory{}
 		err = rows.Scan(&plant.PlantcategoryName)
 		if err != nil {
-			log.Print(err)
+			log.Fatalln(err)
 			return
 		}
-		plantList = append(plantList, plant)
+		plantCategoryList = append(plantCategoryList, plant)
 	}
 
 	return
 
 }
-
-// plantList = []

@@ -11,7 +11,7 @@ type TPlant struct {
 	PlantID         int       `json:"plant_id"`          // plant_id
 	PlantName       string    `json:"plant_name"`        // plant_name
 	PlantDetail     string    `json:"plant_detail"`      // plant_detail
-	PlantcategoryID int       `json:"plant_category_id"` // plant_category_id
+	PlantcategoryId int       `json:"plant_category_id"` // plant_category_id
 	SeasonID        int       `json:"season_id"`         // season_id
 	DeleteFlg       bool      `json:"delete_flg"`        // delete_flg
 	CreateUser      string    `json:"create_user"`       // create_user
