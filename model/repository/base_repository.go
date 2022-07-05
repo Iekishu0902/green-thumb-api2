@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"green-thumb-api/config"
+	"log"
 
 	_ "github.com/lib/pq"
 )
@@ -23,6 +24,7 @@ func LoadDataSource() {
 
 	Db, err = sql.Open(config.Config.SQLDriver, dataSourceName)
 	if err != nil {
+		log.Fatalln(err)
 		panic(err)
 	}
 }
