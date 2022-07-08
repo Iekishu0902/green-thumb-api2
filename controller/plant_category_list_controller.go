@@ -18,8 +18,8 @@ type plantCategoryListController struct {
 }
 
 // PlantCategoryListControllerのコンストラクタ
-func NewPlantCategoryListController(plantCategoryListRepo repository.PlantCategoryListRepository) PlantCategoryListController {
-	return &plantCategoryListController{plantCategoryListRepo}
+func NewPlantCategoryListController(plantCategoryListRepository repository.PlantCategoryListRepository) PlantCategoryListController {
+	return &plantCategoryListController{plantCategoryListRepository}
 }
 
 // PlantNameのリストを取得する

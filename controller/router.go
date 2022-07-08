@@ -18,7 +18,7 @@ func NewRouter(pl PlantCategoryListController) Router {
 
 func (ro *router) HandlePlantCategoryList(w http.ResponseWriter, r *http.Request) {
 	switch r.URL.Path {
-	case "/list":
+	case "/plant_category/list":
 		ro.pl.PlantCategoryList(w, r)
 	}
 
